@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="EmployeeCell" customModule="EmployeeAccountingSystem" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="293.66666666666669" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="firstName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJB-a9-R1h" userLabel="firstName">
+                        <rect key="frame" x="20" y="10" width="75" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lastName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAX-wI-yQr">
+                        <rect key="frame" x="100" y="10" width="72" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="WAX-wI-yQr" secondAttribute="bottom" constant="10" id="OzU-RX-HFX"/>
+                    <constraint firstItem="WAX-wI-yQr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="USy-Hr-ySy"/>
+                    <constraint firstAttribute="bottom" secondItem="AJB-a9-R1h" secondAttribute="bottom" constant="10" id="WQV-T2-hJF"/>
+                    <constraint firstItem="AJB-a9-R1h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="d75-10-9iN"/>
+                    <constraint firstItem="AJB-a9-R1h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="mBG-QP-k62"/>
+                    <constraint firstItem="WAX-wI-yQr" firstAttribute="leading" secondItem="AJB-a9-R1h" secondAttribute="trailing" constant="5" id="xn2-fq-YXg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="firstNameLabel" destination="AJB-a9-R1h" id="jmp-Tz-J2x"/>
+                <outlet property="lastNameLabel" destination="WAX-wI-yQr" id="Vbo-IJ-bGo"/>
+            </connections>
+            <point key="canvasLocation" x="117.55725190839694" y="-11.267605633802818"/>
+        </tableViewCell>
+    </objects>
+</document>
