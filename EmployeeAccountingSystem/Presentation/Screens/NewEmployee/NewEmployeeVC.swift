@@ -11,10 +11,12 @@ import CoreData
 
 final class NewEmployeeVC: UIViewController, UITextFieldDelegate {
     
+    // MARK: - Properties -
+    
     private let dataBase = CoreDataManager.shared
-    let datePicker = UIDatePicker()
-    let employeeListVC = EmployeeListVC()
-    var didSaveNewEmployee: (() -> Void)?
+    private let datePicker = UIDatePicker()
+    private let employeeListVC = EmployeeListVC()
+    private var didSaveNewEmployee: (() -> Void)?
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -24,8 +26,16 @@ final class NewEmployeeVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var departmentTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
+    // MARK: - Lifecycle VC -
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    // MARK: - Setup -
+    
+    private func setup() {
         salaryTextField.delegate = self
         salaryTextField.keyboardType = .decimalPad
         addKeyboardObservers()
@@ -33,7 +43,7 @@ final class NewEmployeeVC: UIViewController, UITextFieldDelegate {
         tapGesture()
     }
     
-    func clearTheFields() {
+    private func clearTheFields() {
         firstNameTextField.text = .empty
         lastNameTextField.text = .empty
         genderSegmentedControl.selectedSegmentIndex = 0
@@ -41,24 +51,24 @@ final class NewEmployeeVC: UIViewController, UITextFieldDelegate {
         departmentTextField.text = .empty
     }
     
-    func saveAlert() {
+    private func saveAlert() {
         let saveAlert = UIAlertController(title: "Saving", message: "Save successfully", preferredStyle: .alert)
         saveAlert.addAction(UIAlertAction(title: "OK", style: .default))
         present(saveAlert, animated: true)
     }
     
-    func addKeyboardObservers() {
+    private func addKeyboardObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    func tapGesture() {
+    private func tapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapGesture.cancelsTouchesInView = true
         view.addGestureRecognizer(tapGesture)
     }
     
-    func createToolbar() -> UIToolbar {
+    private func createToolbar() -> UIToolbar {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneBtnPressed))
@@ -66,7 +76,7 @@ final class NewEmployeeVC: UIViewController, UITextFieldDelegate {
         return toolbar
     }
     
-    @objc func doneBtnPressed() {
+    @objc private func doneBtnPressed() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
@@ -74,7 +84,7 @@ final class NewEmployeeVC: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    func createDatePicker() {
+    private func createDatePicker() {
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
         let dateFormatter = DateFormatter()
@@ -87,16 +97,16 @@ final class NewEmployeeVC: UIViewController, UITextFieldDelegate {
         birthdayTextField.inputAccessoryView = createToolbar()
     }
     
-    @objc func keyboardWillShow(notification:NSNotification) {
+    @objc private func keyboardWillShow(notification:NSNotification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         self.view.frame.origin.y = 205 - keyboardSize.height
     }
     
-    @objc func keyboardWillHide(notification:NSNotification) {
+    @objc private func keyboardWillHide(notification:NSNotification) {
         self.view.frame.origin.y = 0
     }
     
-    @objc func hideKeyboard() {
+    @objc private func hideKeyboard() {
         view.endEditing(true)
     }
     
@@ -139,7 +149,6 @@ final class NewEmployeeVC: UIViewController, UITextFieldDelegate {
             return
         }
     }
-    
 }
 
 
