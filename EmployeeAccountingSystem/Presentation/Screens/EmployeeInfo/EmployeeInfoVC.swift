@@ -23,7 +23,7 @@ class EmployeeInfoVC: UIViewController {
         fillingFields()
     }
     
-    func fillingFields() {
+    private func fillingFields() {
         guard let employee = employee else { return }
         firstNameTextField.text = employee.firstName
         lastNameTextField.text = employee.lastName

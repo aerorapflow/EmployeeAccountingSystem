@@ -10,6 +10,8 @@ import CoreData
 
 class EmployeeListVC: UIViewController {
     
+    // MARK: - Properties -
+    
     private var employeeListVM = EmployeeListVM()
     var fetchedResultsController = CoreDataManager.shared.fetchResultController(entityName: Constants.entity, sortBy: Constants.firstName)
     var isFiltering = false
@@ -28,7 +30,7 @@ class EmployeeListVC: UIViewController {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search employees"
+        searchController.searchBar.placeholder = "Search employees..."
         searchController.definesPresentationContext = true
         return searchController
     }()
@@ -42,14 +44,14 @@ class EmployeeListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingUpInterface()
+        setupInterface()
         observerAddingEmployee()
     }
     // MARK: - Setup -
     
-    private func settingUpInterface() {
+    private func setupInterface() {
         fetchedResultsController.delegate = self
-        settingUpConstraints()
+        setupConstraints()
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.rightBarButtonItem = addButton
@@ -57,7 +59,7 @@ class EmployeeListVC: UIViewController {
         definesPresentationContext = true
     }
     
-    private func settingUpConstraints() {
+    private func setupConstraints() {
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -68,7 +70,6 @@ class EmployeeListVC: UIViewController {
         ])
     }
     
-    // MARK: - <#mark#> -
     private func headerTitle(section: Int, fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>) -> String? {
         guard let sections = fetchedResultsController.sections else {
             return nil
@@ -113,6 +114,7 @@ class EmployeeListVC: UIViewController {
 }
 
 extension EmployeeListVC: UITableViewDelegate, UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         employeeListVM.numberOfSections(fetchedResultsController: fetchedResultsController)
     }
@@ -135,16 +137,6 @@ extension EmployeeListVC: UITableViewDelegate, UITableViewDataSource {
         moveToEmployeeInfo(indexPath: indexPath)
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-////        headerTitle(section: section, fetchedResultsController: fetchedResultsController)
-//    }
-    
-//    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-////        employeeListVM.footerTitle(section: section, fetchedResultsController: fetchedResultsController)
-//    }
-    
-//    L
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
@@ -154,12 +146,12 @@ extension EmployeeListVC: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
-            let label = UILabel(frame: CGRect(x: 16, y: 0, width: headerView.frame.width - 16, height: headerView.frame.height))
-            label.font = UIFont.boldSystemFont(ofSize: 16)
-            label.textColor = .black
-            label.text = headerTitle(section: section, fetchedResultsController: fetchedResultsController)
-            headerView.addSubview(label)
-            return headerView
+        let label = UILabel(frame: CGRect(x: 16, y: 0, width: headerView.frame.width - 16, height: headerView.frame.height))
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .black
+        label.text = headerTitle(section: section, fetchedResultsController: fetchedResultsController)
+        headerView.addSubview(label)
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

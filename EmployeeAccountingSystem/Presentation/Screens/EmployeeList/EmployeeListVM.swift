@@ -10,14 +10,16 @@ import CoreData
 
 class EmployeeListVM {
     
+    // MARK: - Number of sections -
     func numberOfSections(fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>) -> Int {
         fetchedResultsController.sections?.count ?? .zero
     }
-    
+    // MARK: - Numbers of rows in section-
     func numbersOfRowInSection(section: Int, fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>) -> Int {
         fetchedResultsController.sections?[section].numberOfObjects ?? .zero
     }
     
+    // MARK: - Title for header -
     func headerTitle(section: Int, fetchedResultController: NSFetchedResultsController<NSFetchRequestResult>) -> String? {
         guard let sections = fetchedResultController.sections else {
             return nil
@@ -30,11 +32,14 @@ class EmployeeListVM {
         return title
     }
     
+    // MARK: - Employees counting -
     func countEmployeesForDepartment(fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>, section: Int) -> Int {
         let employeeCount = fetchedResultsController.sections?[section].numberOfObjects
         return employeeCount ?? 0
     }
     
+    
+    // MARK: - Title for footer -
     func footerTitle(section: Int, fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>) -> String {
         let unknownDepartment = "Unknown department"
         

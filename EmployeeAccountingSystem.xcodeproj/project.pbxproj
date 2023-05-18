@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6673B76229D769C100982AD3 /* EmployeeListVC+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6673B76129D769C100982AD3 /* EmployeeListVC+SearchBar.swift */; };
-		6689AA8F29EB416900511764 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6689AA8E29EB416900511764 /* Array.swift */; };
 		668BE54629FC5C170098ABC4 /* EmployeeListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668BE54529FC5C170098ABC4 /* EmployeeListVM.swift */; };
 		668CB29729C20D6E007A4E84 /* EmployeeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668CB29629C20D6E007A4E84 /* EmployeeListVC.swift */; };
 		66AC1C1429C3517F0035BF9B /* EmployeeInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66AC1C1329C3517F0035BF9B /* EmployeeInfo.storyboard */; };
@@ -34,7 +33,6 @@
 
 /* Begin PBXFileReference section */
 		6673B76129D769C100982AD3 /* EmployeeListVC+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmployeeListVC+SearchBar.swift"; sourceTree = "<group>"; };
-		6689AA8E29EB416900511764 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		668BE54529FC5C170098ABC4 /* EmployeeListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListVM.swift; sourceTree = "<group>"; };
 		668CB29629C20D6E007A4E84 /* EmployeeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListVC.swift; sourceTree = "<group>"; };
 		66AC1C1329C3517F0035BF9B /* EmployeeInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmployeeInfo.storyboard; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 			children = (
 				66AC1C1729C356D70035BF9B /* UIViewController.swift */,
 				66FD596B29CA37B000F89873 /* String.swift */,
-				6689AA8E29EB416900511764 /* Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -298,7 +295,6 @@
 				66C2DC4129B7E40400C23CCB /* Employee+CoreDataClass.swift in Sources */,
 				66AC1C1829C356D70035BF9B /* UIViewController.swift in Sources */,
 				668CB29729C20D6E007A4E84 /* EmployeeListVC.swift in Sources */,
-				6689AA8F29EB416900511764 /* Array.swift in Sources */,
 				66C2DC1B29B7BBF700C23CCB /* AppDelegate.swift in Sources */,
 				66FD597529CA3D4300F89873 /* EmployeeCell.swift in Sources */,
 				66FD597C29CA420300F89873 /* Constants.swift in Sources */,
